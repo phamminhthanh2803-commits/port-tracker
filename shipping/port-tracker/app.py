@@ -318,6 +318,7 @@ with st.spinner('Đang ghép chuyến tàu từ kho (lần đầu trong tháng c
 if calls.empty:
     st.error('Kho chưa có dữ liệu. Kiểm tra mạng hoặc vào trang "Dữ liệu" để kéo từ nguồn.'); st.stop()
 visits = get_visits(*KEY)
+if CLOUD: cb.trim_memory()                         # bản online: trả RAM tạm sau ghép chuyến (máy ~1 GB)
 tick('get_calls+visits')
 LAST = min(calls.loc[calls['arr_day'].notna(), 'arr_day'].max(), TODAY)
 LO = LOAD_LO

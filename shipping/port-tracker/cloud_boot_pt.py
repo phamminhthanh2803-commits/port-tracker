@@ -97,6 +97,17 @@ def _loop():
         except Exception as e: STATE['error'] = str(e)[:300]  # noqa: E701,BLE001
 
 
+def trim_memory():
+    """trả RAM tạm (sau khi ghép chuyến) về hệ điều hành - máy Streamlit Cloud ~1 GB; Linux glibc malloc_trim, nơi khác chỉ gc"""
+    import gc
+    gc.collect()
+    try:
+        import ctypes
+        ctypes.CDLL('libc.so.6').malloc_trim(0)
+    except Exception:  # noqa: BLE001
+        pass
+
+
 def boot():
     """True nếu đang chạy cloud (đã kéo dữ liệu). Gọi 1 lần đầu app.py."""
     if not _secret('RCLONE_CONF'): return False
