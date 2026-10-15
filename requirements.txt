@@ -1,0 +1,10 @@
+# Port & Vessel Tracker (Streamlit Community Cloud) - 15/10/2026
+streamlit==1.57.0
+pandas==2.3.3
+numpy==2.2.6
+pyarrow==24.0.0
+plotly==7.1.0
+requests==2.34.2
+urllib3==2.7.0
+lxml==6.1.3
+openpyxl==3.1.5

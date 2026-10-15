@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+shipping/port-tracker/store/
+shipping/port-tracker/cache/
+shipping/port-tracker/.cloud_boot.json
+shipping/port-tracker/nowcast_targets.csv
+shipping/*/data/
+.streamlit/secrets.toml
